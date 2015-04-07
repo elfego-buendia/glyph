@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>γ</title>
+  <meta name="description" content="">
+  <meta name="author" content="José Martinez">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- iOS HSI
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="apple-touch-icon" href="images/gammaglyph.png" />
+  
+  <!-- Windows icon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="msapplication-square70x70logo"   content="images/gammaglyph.png" />
+  <meta name="msapplication-square150x150logo" content="images/gammaglyph.png" />
+  <meta name="msapplication-square310x310logo" content="images/gammaglyph.png" />
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/faviglyph.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!--* fade effect when scrolling down *-->
+  <div id="fade-bar"></div>
+  
+  <!--* container for everything *-->
+  <div class="container">
+    <!--* header *-->
+    <div class="header row">
+        <a class="reload" href="javascript:top.frames.location.reload();">
+            <h1 class="title">γ</h1>
+        </a>
+    </div>
+    
+    <!--* results *-->
+    <div class="ug-row row">
+      <textarea id="user-glyphs" class="user-glyphs u-full-width"></textarea>
+    </div>
+    
+    <!--* options *-->
+    <div class="row">
+        <select id="glyph-block" class="glyph-block u-full-width">
+            <option value="1400-167f">Unified Canadian Aboriginal Syllabics</option>
+            <option value="16a0-16ff">Runic</option>
+            <option value="2190-21ff">Arrows</option>
+            <option value="2200-22ff">Mathematical Operators</option>
+            <option id="default-block" value="2600-26ff">Miscellaneous Symbols</option>
+            <option value="25a0-25ff">Geometric Shapes</option>
+            <option id="customb" value="x-x">Custom</option>
+        </select>
+    </div>
+    
+    <!--* table *-->
+    <div class="row">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+          </tr>
+        </thead>
+        <tbody class="generated">
+          <!-- Javascript generated content -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- footer -->
+    <footer>
+      <p id="me">José Martínez</p>
+      <div class="backspace">&lt;-</div>
+    </footer>
+  </div>
+  
+  <!-- Javascript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/hammer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.hammer.js" ></script>
+  <script type="text/javascript" charset="utf-8" src="js/gen.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/script.js"></script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
