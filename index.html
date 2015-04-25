@@ -57,12 +57,12 @@
 
     <!--* results *-->
     <div class="ug-row row">
-      <textarea id="user-glyphs" class="user-glyphs u-full-width"></textarea>
+      <textarea id="user-glyphs" class="user-glyphs"></textarea>
     </div>
 
     <!--* options *-->
     <div class="row">
-        <select id="glyph-block" class="glyph-block u-full-width">
+        <select id="gb-select" class="gb-select u-full-width">
             <option value="1400-167f">Unified Canadian Aboriginal Syllabics</option>
             <option value="16a0-16ff">Runic</option>
             <option value="2190-21ff">Arrows</option>
@@ -71,6 +71,10 @@
             <option value="25a0-25ff">Geometric Shapes</option>
             <option id="customb" value="x-x">Custom</option>
         </select>
+    </div>
+
+    <div class="cb-row row">
+      <input class="range-in" type="text" name="from" value=""><input class="range-in" type="text" name="to" value="">
     </div>
 
     <!--* table *-->

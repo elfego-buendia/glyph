@@ -19,13 +19,12 @@
 
 
 /** Styles **/
-th, td { padding: 8px; }
+th, td { padding: 6px; }
 .title, th, td { text-align: center; }
 
 .header {
     margin-top: 10px;
 }
-
 .reload {
     width: 100%;
     display: inline-block;
@@ -37,14 +36,6 @@ th, td { padding: 8px; }
     color: #222;
 }
 
-.glyph-block {
-    -webkit-appearance: none;
-    -mox-appearance: none;
-    appearance: none;
-
-    /* works in ff only*/
-    text-align: center;
-}
 
 .ug-row {
     height: 60px;
@@ -55,7 +46,8 @@ th, td { padding: 8px; }
     box-shadow: 0 2px 10px #ccc;
     border: none;
 
-    max-width: 87.5%; /* temp fix */
+    width: 87.5%; /* temp fix */
+    max-width: 960px;
     position: fixed;
     left: 0;
     right: 0;
@@ -65,6 +57,27 @@ th, td { padding: 8px; }
     border: 1px solid #33C3F0;
 }
 
+.gb-select {
+    -webkit-appearance: none;
+    -mox-appearance: none;
+    appearance: none;
+
+    /* works in ff only*/
+    text-align: center;
+}
+
+.cb-row {
+}
+.range-in {
+  width: 45%;
+}
+.range-in[name=from] {
+  float: left;
+}
+.range-in[name=to] {
+  float: right;
+}
+
 .glyph {
     font-size: 1.25em;
 
@@ -72,6 +85,12 @@ th, td { padding: 8px; }
     -moz-transition: 0.1s font-size ease;
     transition: 0.1s font-size ease;
 }
+
+footer {
+    margin-top: 50px;
+}
+
+/* feature not ready
 .magnified {
     position: absolute;
     left: 0;
@@ -87,9 +106,6 @@ th, td { padding: 8px; }
     font-size: 5em;
 }
 
-footer {
-    margin-top: 50px;
-}
 .backspace {
     width: 50px;
     height: 50px;
@@ -109,17 +125,34 @@ footer {
     text-align: center;
     line-height: 20px;
 }
-
+*/
 
 /** Media Queries **/
 /* Larger than mobile */
 @media (min-width: 400px) {
-    th, td {padding: 12px 15px;}
+  th, td {padding: 12px 15px;}
 
-    .magnified {font-size: 20em;}
+  .user-glyphs {
+    width: 85%;
+  }
 
-    .user-glyphs {
-        max-width: 960px;
-        margin: 0 auto 0 auto;
-    }
+  /*
+  .magnified {font-size: 20em;}
+  */
 }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  .user-glyphs {
+    width: 80%;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
