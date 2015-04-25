@@ -17,7 +17,10 @@ $(function () {
 
         var range;
         if(option.id == 'customb') {
-            range = ['2630', '2637'];
+            //range = ['2630', '2637'];
+            $('.cb-row').toggleClass('cb-show');
+            setTimeOut(('.cb-row').toggleClass('cb-fade'), 1000);
+            //$('.cb-row').toggleClass('cb-fade');
         } else {
             range = option.value.split('-');
         }
@@ -61,4 +64,11 @@ function generateAndBind(from, to) {
        selectedGlyph = null;
     });
     */
+}
+
+function getCustom() {
+  var fRange = document.getElementById('from').val;
+  var tRange = document.getElementById('to').val;
+
+
 }

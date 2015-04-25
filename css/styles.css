@@ -67,14 +67,24 @@ th, td { padding: 6px; }
 }
 
 .cb-row {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.cb-show {
+  display: block;
+}
+.cb-fade {
+  opacity: 1;
 }
 .range-in {
   width: 45%;
+  text-align: center;
 }
-.range-in[name=from] {
+#from {
   float: left;
 }
-.range-in[name=to] {
+#to {
   float: right;
 }
 
