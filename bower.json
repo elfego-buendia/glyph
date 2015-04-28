@@ -1,0 +1,14 @@
+{
+  "name": "glyph",
+  "version": "1.0",
+  "homepage": "https://github.com/elfego-buendia/glyph",
+  "authors": [
+    "Jose Martinez <elfego.buendia.x@gmail.com>"
+  ],
+  "description": "Glyph resources",
+  "dependencies": {
+    "skeleton": "~2.0.4",
+    "hammer.js": "~2.0.4",
+    "jquery.hammer.js": "~2.0.0"
+  }
+}
