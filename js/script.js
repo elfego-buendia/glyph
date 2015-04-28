@@ -16,6 +16,7 @@ $(function () {
         window.scrollTo(0,0);
     });
 
+    /* move fixed textarea and make backspace appear, for better view while in landscape */
     window.onscroll = function() {
       if(window.pageYOffset >= 60) {
         $('#user-glyphs').addClass('ug-min');
@@ -40,6 +41,7 @@ $(function () {
         }
     });
 
+    /* go click, process custom range, error if invalid range */
     $('#go').click(function (e) {
       var fRange = $('#from').val();
       var tRange = $('#to').val();
@@ -51,13 +53,21 @@ $(function () {
       }
     });
 
-    $('#user-glyphs').click(function (e) {
+    /* select all when in focus, for easy copying */
+    $('#user-glyphs').click(function () {
         this.setSelectionRange(0,999);
     });
 
-    $('#backspace').click(function(e) {
+    /* backspace click */
+    $('#backspace').click(function() {
       var inString = $('#user-glyphs').val();
       $('#user-glyphs').val(inString.substring(0, inString.length - 1))
+    });
+
+    /* e */
+    $('#em').click(function () {
+        var first = 'elfego', second = 'buendia', third = 'x', end = '@gmail.com', subject = '?Subject=Glyph';
+        $(this).attr('href', 'mailto:' + first + '.' + second + '.' + third + end + subject);
     });
 });
 
