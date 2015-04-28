@@ -19,7 +19,7 @@
 
 
 /** Styles **/
-th, td { padding: 6px; }
+th, td { padding: 8px 4px; }
 .title, th, td { text-align: center; }
 
 .header {
@@ -36,10 +36,7 @@ th, td { padding: 6px; }
     color: #222;
 }
 
-
-.ug-row {
-    height: 60px;
-}
+.ug-row { height: 70px; }
 .user-glyphs {
     min-height: 38px;
 
@@ -49,14 +46,19 @@ th, td { padding: 6px; }
     width: 87.5%; /* temp fix */
     max-width: 960px;
     position: fixed;
+    top: 90px;
     left: 0;
     right: 0;
     margin: 0 auto 0 auto;
+
+    transition: top .5s ease;
 }
 .user-glyphs:focus {
     border: 1px solid #33C3F0;
 }
-
+.ug-min {
+  top: 30px;
+}
 .gb-select {
     -webkit-appearance: none;
     -mox-appearance: none;
@@ -68,23 +70,36 @@ th, td { padding: 6px; }
 
 .cb-row {
   display: none;
-  opacity: 0;
-  transition: opacity 1s ease;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+
+  transition: height 1s ease;
 }
 .cb-show {
-  display: block;
-}
-.cb-fade {
-  opacity: 1;
+  display: -webkit-flex;
+  display: flex;
 }
 .range-in {
-  width: 45%;
+  margin-right: 2.5%;
   text-align: center;
 }
 #from {
-  float: left;
+  -webkit-flex: 4 1 auto;
+  flex: 4 1 auto;
+  width: 40%;
 }
 #to {
+  -webkit-flex: 4 1 auto;
+  flex: 4 1 auto;
+  width: 40%;
+}
+#go {
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 10%;
+  padding: 0 9px;
+
+  font-size: 12px;
   float: right;
 }
 
@@ -99,43 +114,33 @@ th, td { padding: 6px; }
 footer {
     margin-top: 50px;
 }
-
-/* feature not ready
-.magnified {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-
-    border: 1px solid red;
-    background-color: #fff;
-
-    width: 50%;
-    height: auto;
-    font-size: 5em;
-}
-
 .backspace {
-    width: 50px;
-    height: 50px;
-    padding: 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 0px;
+  background: rgba(221,221,221,.75);
+  opacity: 0;
 
-    display: none;
+  text-align: center;
+  line-height: 50px;
 
-    right: 0;
-    bottom: 0;
-    position: fixed;
-
-    background-color: #eee;
-
-    text-align: center;
-    line-height: 20px;
+  transition: all 1s ease;
 }
-*/
+.bs-show {
+  height: 50px;
+  opacity: 1;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 /** Media Queries **/
 /* Larger than mobile */

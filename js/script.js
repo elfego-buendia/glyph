@@ -11,25 +11,53 @@ $(function () {
     // default block to display
     generateAndBind('2600', '26FF');
 
+    // stop the window from scrolling after events from select and last custom input element
+    $(document).on('blur', '#gb-select,#to', function() {
+        window.scrollTo(0,0);
+    });
+
+    window.onscroll = function() {
+      if(window.pageYOffset >= 60) {
+        $('#user-glyphs').addClass('ug-min');
+        $('#backspace').addClass('bs-show');
+      } else if (window.pageYOffset <= 30)  {
+        $('#user-glyphs').removeClass('ug-min');
+        $('#backspace').removeClass('bs-show');
+      }
+    }
+
     // generate based on selection
-    gBlock.change(function() {
+    gBlock.change(function(e) {
         var option = this.options[this.selectedIndex];
 
         var range;
         if(option.id == 'customb') {
-            //range = ['2630', '2637'];
-            $('.cb-row').toggleClass('cb-show');
-            setTimeOut(('.cb-row').toggleClass('cb-fade'), 1000);
-            //$('.cb-row').toggleClass('cb-fade');
+            $('.cb-row').addClass('cb-show');
         } else {
+            $('.cb-row').removeClass('cb-show');
             range = option.value.split('-');
+            generateAndBind(range[0], range[1]);
         }
+    });
 
-        generateAndBind(range[0], range[1]);
+    $('#go').click(function (e) {
+      var fRange = $('#from').val();
+      var tRange = $('#to').val();
+
+      if(parseInt(fRange, 16) >= parseInt(tRange, 16)) {
+        alert('Please enter a valid range');
+      } else {
+        generateAndBind(fRange, tRange);
+      }
     });
 
     $('#user-glyphs').click(function (e) {
         this.setSelectionRange(0,999);
+    });
+
+    $('#backspace').click(function(e) {
+      var inString = $('#user-glyphs').val();
+      $('#user-glyphs').val(inString.substring(0, inString.length - 1))
     });
 });
 
@@ -48,27 +76,4 @@ function generateAndBind(from, to) {
 
         userGlyphs.val(userGlyphs.val() + $(this).text());
     });
-    /*
-    glyph.hammer().bind('press', function (e) {
-        if (selectedGlyph === null) {
-            selectedGlyph = this;
-            $(this).toggleClass('magnified');
-        } else {
-            $(selectedGlyph).toggleClass('magnified');
-            selectedGlyph = this;
-            $(this).toggleClass('magnified');
-        }
-    });
-    glyph.hammer().bind('swipe', function (e) {
-       $(this).removeClass('magnified');
-       selectedGlyph = null;
-    });
-    */
-}
-
-function getCustom() {
-  var fRange = document.getElementById('from').val;
-  var tRange = document.getElementById('to').val;
-
-
 }
