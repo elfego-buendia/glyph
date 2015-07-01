@@ -4,6 +4,14 @@
     -moz-animation: 1s glow 1;
     animation: 1s glow 1;
 }
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 @-webkit-keyframes glow {
     from {color: #33C3F0;}
     to   {color: #000;}
@@ -36,7 +44,7 @@ th, td { padding: 8px 4px; }
     color: #222;
 }
 
-.ug-row { height: 70px; }
+.row-user-glyphs { height: 70px; }
 .user-glyphs {
     min-height: 38px;
 
@@ -56,44 +64,44 @@ th, td { padding: 8px 4px; }
 .user-glyphs:focus {
     border: 1px solid #33C3F0;
 }
-.ug-min {
+.user-glyphs-min {
   top: 30px;
 }
-.gb-select {
+.select-glyph-block {
     -webkit-appearance: none;
-    -mox-appearance: none;
+    -moz-appearance: none;
     appearance: none;
 
     /* works in ff only*/
     text-align: center;
 }
 
-.cb-row {
+.row-custom-block {
   display: none;
   -webkit-justify-content: space-between;
   justify-content: space-between;
 
   transition: height 1s ease;
 }
-.cb-show {
+.show-custom-block {
   display: -webkit-flex;
   display: flex;
 }
-.range-in {
+.input-range {
   margin-right: 2.5%;
   text-align: center;
 }
-#from {
+.input-from {
   -webkit-flex: 4 1 auto;
   flex: 4 1 auto;
   width: 40%;
 }
-#to {
+.input-to {
   -webkit-flex: 4 1 auto;
   flex: 4 1 auto;
   width: 40%;
 }
-#go {
+.input-go {
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 10%;
@@ -108,6 +116,7 @@ th, td { padding: 8px 4px; }
 
     -webkit-transition: 0.1s font-size ease;
     -moz-transition: 0.1s font-size ease;
+    -o-transition: 0.1s font-size ease;
     transition: 0.1s font-size ease;
 }
 
@@ -119,7 +128,8 @@ footer {
   bottom: 0;
   right: 0;
   width: 50px;
-  height: 0px;
+  height: 0;
+  background: #ddd;
   background: rgba(221,221,221,.75);
   opacity: 0;
 
@@ -128,18 +138,9 @@ footer {
 
   transition: all 1s ease;
 }
-.bs-show {
+.show-backspace {
   height: 50px;
   opacity: 1;
-}
-
-.no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 /** Media Queries **/
