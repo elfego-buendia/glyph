@@ -1,0 +1,44 @@
+.selected {
+  -webkit-animation: 1s glow 1;
+  -moz-animation: 1s glow 1;
+  -ms-animation: 1s glow 1;
+  -o-animation: 1s glow 1;
+  animation: 1s glow 1; }
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+@-webkit-keyframes glow {
+  from {
+    color: #33C3F0; }
+  to {
+    color: #000; } }
+
+@-moz-keyframes glow {
+  from {
+    color: #33C3F0; }
+  to {
+    color: #000; } }
+
+@-ms-keyframes glow {
+  from {
+    color: #33C3F0; }
+  to {
+    color: #000; } }
+
+@-o-keyframes glow {
+  from {
+    color: #33C3F0; }
+  to {
+    color: #000; } }
+
+@keyframes glow {
+  from {
+    color: #33C3F0; }
+  to {
+    color: #000; } }

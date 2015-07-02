@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+@mixin animation($settings...) {
+  -webkit-animation: $settings;
+     -moz-animation: $settings;
+      -ms-animation: $settings;
+       -o-animation: $settings;
+          animation: $settings;
+}
+
+@mixin user-select($v) {
+  -webkit-touch-callout: $v;
+    -webkit-user-select: $v;
+     -khtml-user-select: $v;
+       -moz-user-select: $v;
+        -ms-user-select: $v;
+            user-select: $v;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes $name {
+    @content;
+  }
+  @-moz-keyframes $name {
+    @content;
+  }
+  @-ms-keyframes $name {
+    @content;
+  }
+  @-o-keyframes $name {
+    @content;
+  }
+  @keyframes $name {
+    @content;
+  }
+}
+
+
+$glow-highlight: #33C3F0;
+$glow-lowlight: #000;
+
+.selected {
+  @include animation(1s glow 1);
+}
+
+.no-select {
+  @include user-select(none);
+}
+
+@include keyframes(glow) {
+  from {color: $glow-highlight;}
+  to   {color: $glow-lowlight;}
+};

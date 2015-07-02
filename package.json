@@ -1,0 +1,15 @@
+{
+  "name": "glyph",
+  "version": "1.0.0",
+  "description": "Glyph board",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elfego-buendia/glyph.git"
+  },
+  "author": "Jose Martinez",
+  "homepage": "https://github.com/elfego-buendia/glyph#readme"
+}
