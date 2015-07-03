@@ -2,6 +2,29 @@
 /*eslint no-multi-spaces:0, no-use-before-define:0, no-unused-vars:0, no-alert:0 */
 /*global $, e, makeGlyphs*/
 
+/* debounce */
+Function.prototype.debounce = function (threshold, execAsap) {
+
+    var func = this, timeout;
+
+    return function debounced () {
+        var obj = this, args = arguments;
+        function delayed () {
+            if (!execAsap)
+                func.apply(obj, args);
+            timeout = null;
+        };
+
+        if (timeout)
+            clearTimeout(timeout);
+        else if (execAsap)
+            func.apply(obj, args);
+
+        timeout = setTimeout(delayed, threshold || 100);
+    };
+
+}
+
 $(function () {
     /*
      * Functions
@@ -30,7 +53,7 @@ $(function () {
      */
 
     // move fixed textarea and make backspace appear, for better view while in landscape
-    window.onscroll = function() {
+    window.onscroll = (function() {
       if(window.pageYOffset >= 60) {
         $('#user-glyphs').addClass('user-glyphs-min');
         $('#backspace').addClass('show-backspace');
@@ -38,7 +61,7 @@ $(function () {
         $('#user-glyphs').removeClass('user-glyphs-min');
         $('#backspace').removeClass('show-backspace');
       }
-    };
+    }).debounce(100, false);
 
     // select all when in focus, for easy copying
     $('#user-glyphs').click(function () {
