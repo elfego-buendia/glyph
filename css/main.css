@@ -8,9 +8,9 @@
 .no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -o-user-select: none;
   user-select: none; }
 
 @-webkit-keyframes glow {
@@ -42,3 +42,141 @@
     color: #33C3F0; }
   to {
     color: #000; } }
+
+th, td, .title {
+  text-align: center; }
+
+th, td {
+  padding: 8px 4px; }
+
+.header {
+  margin-top: 10px; }
+
+.reload {
+  width: 100%;
+  display: inline-block;
+  color: #222;
+  text-decoration: none; }
+  .reload:hover {
+    color: #222; }
+
+.row-user-glyphs {
+  height: 70px; }
+
+.user-glyphs {
+  min-height: 38px;
+  box-shadow: 0 2px 10px #ccc;
+  border: none;
+  width: 87.5%;
+  /* temp fix */
+  max-width: 960px;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+  transition: top 0.5s ease; }
+  .user-glyphs:focus {
+    border: 1px solid #33C3F0; }
+
+.user-glyphs-min {
+  top: 30px; }
+
+.select-glyph-block {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  /* works in ff only*/
+  text-align: center; }
+
+.row-custom-block {
+  display: none;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  transition: height 1s ease; }
+
+.show-custom-block {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex; }
+
+.input-range {
+  margin-right: 2.5%;
+  text-align: center; }
+
+.input-from {
+  -webkit-flex: 4 1 auto;
+  -moz-flex: 4 1 auto;
+  -ms-flex: 4 1 auto;
+  -o-flex: 4 1 auto;
+  flex: 4 1 auto;
+  width: 40%; }
+
+.input-to {
+  -webkit-flex: 4 1 auto;
+  -moz-flex: 4 1 auto;
+  -ms-flex: 4 1 auto;
+  -o-flex: 4 1 auto;
+  flex: 4 1 auto;
+  width: 40%; }
+
+.input-go {
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  -o-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 10%;
+  padding: 0 9px;
+  font-size: 12px;
+  float: right; }
+
+.glyph {
+  font-size: 1.25em; }
+
+footer {
+  margin-top: 50px; }
+
+.backspace {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 0;
+  background: #ddd;
+  background: rgba(221, 221, 221, 0.75);
+  opacity: 0;
+  text-align: center;
+  line-height: 50px;
+  transition: all 1s ease; }
+
+.show-backspace {
+  height: 50px;
+  opacity: 1; }
+
+/** Media Queries **/
+/* Larger than mobile */
+@media (min-width: 400px) {
+  th, td {
+    padding: 12px 15px; }
+  .user-glyphs {
+    width: 85%; }
+  /*
+  .magnified {font-size: 20em;}
+  */ }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  .user-glyphs {
+    width: 80%; } }
+
+/* Larger than tablet */
+/* Larger than desktop */
+/* Larger than Desktop HD */

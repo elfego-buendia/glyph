@@ -1,20 +1,23 @@
 @charset "utf-8";
 
-@mixin animation($settings...) {
-  -webkit-animation: $settings;
-     -moz-animation: $settings;
-      -ms-animation: $settings;
-       -o-animation: $settings;
-          animation: $settings;
+// constants
+$VENDOR_PREFIXES: ('webkit', 'moz', 'ms', 'o');
+
+// mixins
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
 }
 
-@mixin user-select($v) {
-  -webkit-touch-callout: $v;
-    -webkit-user-select: $v;
-     -khtml-user-select: $v;
-       -moz-user-select: $v;
-        -ms-user-select: $v;
-            user-select: $v;
+@mixin prefix-post($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{$property}: -#{$prefix}-$value;
+  }
+
+  #{$property}: $value;
 }
 
 @mixin keyframes($name) {
@@ -35,19 +38,166 @@
   }
 }
 
-
+// scss
 $glow-highlight: #33C3F0;
 $glow-lowlight: #000;
 
 .selected {
-  @include animation(1s glow 1);
+  @include prefix(animation, 1s glow 1, $VENDOR_PREFIXES);
 }
 
 .no-select {
-  @include user-select(none);
+  $value: none;
+  -webkit-touch-callout: $value;
+  @include prefix(user-select, $value, $VENDOR_PREFIXES);
 }
 
 @include keyframes(glow) {
   from {color: $glow-highlight;}
   to   {color: $glow-lowlight;}
 };
+
+th, td, .title {
+  text-align: center;
+}
+th, td {
+  padding: 8px 4px;
+}
+
+.header {
+  margin-top: 10px;
+}
+.reload {
+  $almost-black: #222;
+
+  width: 100%;
+  display: inline-block;
+
+  color: $almost-black;
+  text-decoration: none;
+
+  &:hover {
+    color: $almost-black;
+  }
+}
+
+.row-user-glyphs {
+  height: 70px;
+}
+.user-glyphs {
+  min-height: 38px;
+
+  box-shadow: 0 2px 10px #ccc;
+  border: none;
+
+  width: 87.5%; /* temp fix */
+  max-width: 960px;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+
+  transition: top .5s ease;
+
+  &:focus {
+    border: 1px solid $glow-highlight;
+  }
+}
+.user-glyphs-min {
+  top: 30px;
+}
+
+.select-glyph-block {
+  @include prefix(appearance, none, $VENDOR_PREFIXES);
+
+  /* works in ff only*/
+  text-align: center;
+}
+
+.row-custom-block {
+  display: none;
+  @include prefix(justify-content, space-between, $VENDOR_PREFIXES);
+
+  transition: height 1s ease;
+}
+.show-custom-block {
+  @include prefix-post(display, flex, $VENDOR_PREFIXES);
+}
+.input-range {
+  margin-right: 2.5%;
+  text-align: center;
+}
+.input-from {
+  @include prefix(flex, 4 1 auto, $VENDOR_PREFIXES);
+  width: 40%;
+}
+.input-to {
+  @include prefix(flex, 4 1 auto, $VENDOR_PREFIXES);
+  width: 40%;
+}
+.input-go {
+  @include prefix(flex, 1 1 auto, $VENDOR_PREFIXES);
+  width: 10%;
+  padding: 0 9px;
+
+  font-size: 12px;
+  float: right;
+}
+
+.glyph {
+    font-size: 1.25em;
+}
+
+footer {
+    margin-top: 50px;
+}
+.backspace {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 0;
+  background: #ddd;
+  background: rgba(221,221,221,.75);
+  opacity: 0;
+
+  text-align: center;
+  line-height: 50px;
+
+  transition: all 1s ease;
+}
+.show-backspace {
+  height: 50px;
+  opacity: 1;
+}
+
+/** Media Queries **/
+/* Larger than mobile */
+@media (min-width: 400px) {
+  th, td {padding: 12px 15px;}
+
+  .user-glyphs {
+    width: 85%;
+  }
+
+  /*
+  .magnified {font-size: 20em;}
+  */
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  .user-glyphs {
+    width: 80%;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
